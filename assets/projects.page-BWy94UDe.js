@@ -1,0 +1,1 @@
+import{u as e}from"./index-D08JS7uN.js";function o(){return e("div",{className:"mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16",children:e("p",{className:"text-2xl font-bold",children:"Welcome to Projects Page"})})}export{o as default};
