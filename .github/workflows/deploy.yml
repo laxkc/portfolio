@@ -30,8 +30,16 @@ jobs:
           # Deploying to root (username.github.io)
           BASE_PATH: /
 
-      - name: Add .nojekyll file
-        run: touch ./dist/.nojekyll
+      - name: Ensure .nojekyll exists
+        run: |
+          # Copy .nojekyll from public if it exists, otherwise create it
+          if [ -f ./public/.nojekyll ]; then
+            cp ./public/.nojekyll ./dist/.nojekyll
+          else
+            touch ./dist/.nojekyll
+          fi
+          echo ".nojekyll file present:" && ls -la ./dist/.nojekyll
+          echo "Verifying dist contents:" && ls -la ./dist/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

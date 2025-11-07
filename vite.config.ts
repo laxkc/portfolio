@@ -16,4 +16,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // Ensure proper MIME types for GitHub Pages
+    rollupOptions: {
+      output: {
+        // Ensure JS files have .js extension for proper MIME type
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
+      }
+    }
+  }
 });
